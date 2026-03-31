@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Northstar Hub
 
-## Getting Started
+Northstar Hub is a Next.js dashboard skeleton for internal company use. The project starts with a protected application shell, placeholder sections for common employee-facing workflows, and a credentials-based authentication setup that can be replaced later with company SSO.
 
-First, run the development server:
+## Included
+
+- Next.js App Router with TypeScript and Tailwind CSS
+- Shared dashboard shell with sidebar navigation and top header
+- Protected routes for dashboard, announcements, tools, metrics, requests, and directory
+- NextAuth credentials provider for local development and auth flow validation
+- Environment template for auth configuration
+
+## Routes
+
+- `/` public overview and entry point
+- `/sign-in` authentication screen
+- `/dashboard` authenticated dashboard home
+- `/announcements` authenticated announcements placeholder
+- `/tools` authenticated quick tools placeholder
+- `/metrics` authenticated KPI placeholder
+- `/requests` authenticated requests placeholder
+- `/directory` authenticated team directory placeholder
+
+## Local setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Copy the environment template and adjust values as needed:
+
+```bash
+copy .env.example .env.local
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open `http://localhost:3000` and sign in with the configured demo credentials.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Default demo credentials
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+These values are used when the matching environment variables are not set:
 
-## Learn More
+- Email: `admin@company.com`
+- Password: `ChangeMe123!`
+- Name: `Operations Admin`
 
-To learn more about Next.js, take a look at the following resources:
+Replace these immediately for shared environments.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Authentication notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Route protection is applied through `proxy.ts`.
+- Auth configuration lives in `auth.ts`.
+- The current credentials provider is a development-ready placeholder.
+- When company identity details are available, replace the credentials provider with the correct SSO provider and keep the existing route/layout structure.
 
-## Deploy on Vercel
+## Suggested next steps
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Replace demo auth with your actual identity provider.
+2. Connect each section to a real data source or internal service.
+3. Add role-based access rules if different employee groups need different dashboard capabilities.

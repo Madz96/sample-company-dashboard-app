@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5efe3;
+  --foreground: #122620;
+  --surface: rgba(255, 251, 244, 0.84);
+  --surface-strong: #fff9ef;
+  --muted: #5e6d67;
+  --border: rgba(18, 38, 32, 0.12);
+  --border-strong: rgba(18, 38, 32, 0.22);
+  --accent: #0f766e;
+  --accent-strong: #0b5c56;
+  --accent-soft: rgba(15, 118, 110, 0.12);
+  --success: #1f7a4f;
+  --warning: #9a5b1a;
+  --danger: #a33b2f;
+  --shadow-lg: 0 24px 80px rgba(20, 36, 31, 0.12);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-ibm-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at top left, rgba(241, 191, 92, 0.22), transparent 30%),
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.18), transparent 28%),
+    linear-gradient(180deg, #f8f3e9 0%, #efe3d1 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: rgba(15, 118, 110, 0.18);
+  color: var(--foreground);
+}
+
+.glass-panel {
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-lg);
 }

@@ -1,65 +1,102 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, LockKeyhole, Sparkles } from "lucide-react";
+import { auth } from "@/auth";
+import { dashboardNavItems } from "@/lib/navigation";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
+
+  if (session?.user) {
+    redirect("/dashboard");
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-12 px-6 py-10 lg:px-10 lg:py-12">
+      <section className="glass-panel relative overflow-hidden rounded-[2rem] border border-border px-8 py-10 lg:px-12 lg:py-14">
+        <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-[radial-gradient(circle_at_top,rgba(15,118,110,0.16),transparent_44%)] lg:block" />
+        <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(22rem,0.9fr)] lg:items-end">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-2 text-sm font-medium text-muted">
+              <Sparkles className="h-4 w-4 text-accent" />
+              Company operations dashboard starter
+            </div>
+            <div className="space-y-5">
+              <h1 className="max-w-3xl text-5xl font-semibold tracking-[-0.04em] text-ink sm:text-6xl">
+                One place for the tools, signals, and workflows your teams use every day.
+              </h1>
+              <p className="max-w-2xl text-lg leading-8 text-muted">
+                Northstar Hub ships with a protected dashboard shell, reusable navigation,
+                and route placeholders for company news, quick tools, KPIs, approvals, and
+                the team directory.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/sign-in"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-strong"
+              >
+                <LockKeyhole className="h-4 w-4" />
+                Sign in to the dashboard
+              </Link>
+              <Link
+                href="#sections"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border-strong bg-white/70 px-6 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"
+              >
+                Explore the skeleton
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid gap-4 rounded-[1.75rem] border border-border bg-[#13231f] p-5 text-white shadow-[0_24px_80px_rgba(19,35,31,0.24)]">
+            <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/6 p-4">
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-white/55">Access</p>
+                <p className="mt-2 text-2xl font-semibold">Protected routes</p>
+              </div>
+              <div className="rounded-full bg-white/12 px-3 py-1 text-sm font-medium text-white/80">
+                NextAuth
+              </div>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/6 p-4">
+                <p className="text-sm text-white/60">Reusable layout</p>
+                <p className="mt-2 text-lg font-semibold">Sidebar + command header</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/6 p-4">
+                <p className="text-sm text-white/60">Planned sections</p>
+                <p className="mt-2 text-lg font-semibold">5 launch-ready route stubs</p>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-dashed border-white/18 bg-black/10 p-4 text-sm text-white/70">
+              Swap the demo credentials provider for your company SSO later without
+              replacing the application shell.
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <section id="sections" className="grid gap-5 lg:grid-cols-3">
+        {dashboardNavItems.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <article
+              key={item.href}
+              className="glass-panel rounded-[1.5rem] border border-border p-6 transition hover:-translate-y-0.5 hover:border-border-strong"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+                <Icon className="h-6 w-6" />
+              </div>
+              <h2 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-ink">
+                {item.title}
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
+            </article>
+          );
+        })}
+      </section>
+    </main>
   );
 }
