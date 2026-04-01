@@ -16,8 +16,21 @@ export const demoCredentials = {
   name: process.env.DEMO_USER_NAME ?? "Operations Admin",
 };
 
+const authSecret =
+  process.env.AUTH_SECRET ??
+  (process.env.NODE_ENV === "development"
+    ? "dev-only-auth-secret-change-before-sharing"
+    : undefined);
+
+if (!authSecret) {
+  throw new Error(
+    "Missing AUTH_SECRET. Add AUTH_SECRET to your environment before starting the app.",
+  );
+}
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   trustHost: true,
+  secret: authSecret,
   session: {
     strategy: "jwt",
   },
