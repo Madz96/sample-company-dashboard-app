@@ -24,7 +24,7 @@ export default async function SignInPage() {
           </Link>
 
           <div className="mt-10 max-w-2xl space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/72 px-4 py-2 text-sm font-medium text-muted">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-strong px-4 py-2 text-sm font-medium text-muted">
               <ShieldCheck className="h-4 w-4 text-success" />
               Authentication starter wired with NextAuth
             </div>
@@ -39,7 +39,7 @@ export default async function SignInPage() {
           </div>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2">
-            <div className="rounded-[1.5rem] border border-border bg-white/72 p-5">
+            <div className="rounded-[1.5rem] border border-border bg-surface-strong p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted">
                 Included now
               </p>
@@ -49,11 +49,11 @@ export default async function SignInPage() {
                 <li>Server-side sign-in and sign-out flows</li>
               </ul>
             </div>
-            <div className="rounded-[1.5rem] border border-border bg-[#13231f] p-5 text-white">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/55">
+            <div className="rounded-[1.5rem] border border-border bg-surface-strong p-5 text-ink">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted">
                 Default demo login
               </p>
-              <div className="mt-4 space-y-2 font-mono text-sm text-white/80">
+              <div className="mt-4 space-y-2 font-mono text-sm text-muted">
                 <p>{demoCredentials.email}</p>
                 <p>{demoCredentials.password}</p>
               </div>

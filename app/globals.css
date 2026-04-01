@@ -1,20 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5efe3;
-  --foreground: #122620;
-  --surface: rgba(255, 251, 244, 0.84);
-  --surface-strong: #fff9ef;
-  --muted: #5e6d67;
-  --border: rgba(18, 38, 32, 0.12);
-  --border-strong: rgba(18, 38, 32, 0.22);
-  --accent: #0f766e;
-  --accent-strong: #0b5c56;
-  --accent-soft: rgba(15, 118, 110, 0.12);
-  --success: #1f7a4f;
-  --warning: #9a5b1a;
-  --danger: #a33b2f;
-  --shadow-lg: 0 24px 80px rgba(20, 36, 31, 0.12);
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #1a3b56;
+  --surface: #f9fafb;
+  --surface-strong: #ffffff;
+  --muted: #55708a;
+  --border: rgba(26, 59, 86, 0.14);
+  --border-strong: rgba(26, 59, 86, 0.24);
+  --accent: #2e7d9a;
+  --accent-strong: #1a3b56;
+  --accent-soft: rgba(191, 219, 254, 0.45);
+  --success: #2f8a57;
+  --warning: #d08a24;
+  --danger: #e53935;
+  --danger-soft: rgba(229, 57, 53, 0.12);
+  --shadow-lg: 0 24px 80px rgba(26, 59, 86, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background: #101116;
+    --foreground: #f3f4f6;
+    --surface: #1a1c21;
+    --surface-strong: #23262d;
+    --muted: #d7dee6;
+    --border: rgba(243, 244, 246, 0.16);
+    --border-strong: rgba(243, 244, 246, 0.28);
+    --accent: #45a2c5;
+    --accent-strong: #d1e9ff;
+    --accent-soft: rgba(209, 233, 255, 0.18);
+    --success: #4db97a;
+    --warning: #f0ad4e;
+    --danger: #ff5c5c;
+    --danger-soft: rgba(255, 92, 92, 0.16);
+    --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.42);
+  }
 }
 
 @theme inline {
@@ -47,11 +70,20 @@ body {
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(241, 191, 92, 0.22), transparent 30%),
-    radial-gradient(circle at top right, rgba(15, 118, 110, 0.18), transparent 28%),
-    linear-gradient(180deg, #f8f3e9 0%, #efe3d1 100%);
+    radial-gradient(circle at top left, rgba(46, 125, 154, 0.14), transparent 32%),
+    radial-gradient(circle at top right, rgba(191, 219, 254, 0.55), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f4f8fd 100%);
   color: var(--foreground);
   font-family: var(--font-manrope), sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(69, 162, 197, 0.16), transparent 30%),
+      radial-gradient(circle at top right, rgba(209, 233, 255, 0.12), transparent 34%),
+      linear-gradient(180deg, #101116 0%, #141821 100%);
+  }
 }
 
 a {
@@ -59,7 +91,7 @@ a {
 }
 
 ::selection {
-  background: rgba(15, 118, 110, 0.18);
+  background: var(--accent-soft);
   color: var(--foreground);
 }
 
@@ -67,4 +99,8 @@ a {
   background: var(--surface);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-lg);
+}
+
+.hero-glow {
+  background: radial-gradient(circle at top, var(--accent-soft), transparent 44%);
 }

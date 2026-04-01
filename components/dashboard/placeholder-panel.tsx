@@ -17,7 +17,7 @@ export function PlaceholderPanel({
         {items.map((item) => (
           <li
             key={item}
-            className="rounded-2xl border border-border bg-white/72 px-4 py-3 text-sm text-ink"
+            className="rounded-2xl border border-border bg-surface-strong px-4 py-3 text-sm text-ink"
           >
             {item}
           </li>

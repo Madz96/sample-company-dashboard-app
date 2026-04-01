@@ -14,17 +14,17 @@ export function DashboardSidebar() {
 
   return (
     <aside className="glass-panel flex w-full max-w-xs flex-col gap-8 rounded-[2rem] border border-border p-5 lg:h-[calc(100vh-2rem)] lg:sticky lg:top-4 lg:max-w-[17.5rem]">
-      <div className="rounded-[1.5rem] bg-[#142723] px-5 py-5 text-white">
+      <div className="rounded-[1.5rem] border border-border bg-surface-strong px-5 py-5 text-ink">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
             <Building2 className="h-5 w-5" />
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.24em] text-white/55">Company hub</p>
+            <p className="text-xs uppercase tracking-[0.24em] text-muted">Company hub</p>
             <h1 className="text-lg font-semibold tracking-[-0.03em]">Northstar</h1>
           </div>
         </div>
-        <p className="mt-4 text-sm leading-6 text-white/68">
+        <p className="mt-4 text-sm leading-6 text-muted">
           Shared workspace for internal communications, approvals, reporting, and
           employee self-service.
         </p>
@@ -44,8 +44,8 @@ export function DashboardSidebar() {
               className={classNames(
                 "group flex items-center gap-3 rounded-2xl border px-4 py-3 transition",
                 isActive
-                  ? "border-transparent bg-accent text-white shadow-[0_18px_40px_rgba(15,118,110,0.24)]"
-                  : "border-transparent bg-white/55 text-ink hover:border-border hover:bg-white",
+                  ? "border-transparent bg-accent text-white shadow-[var(--shadow-lg)]"
+                  : "border-transparent bg-surface text-ink hover:border-border hover:bg-surface-strong",
               )}
             >
               <span
