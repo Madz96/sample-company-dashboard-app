@@ -33,7 +33,7 @@ export default function DashboardPage() {
         title="A shell for cross-company work"
         description="Use this home view as the launch point for the rest of the product. The cards below are intentionally lightweight so each feature area can evolve independently without needing a new layout or auth model."
         aside={
-          <div className="rounded-[1.5rem] border border-border bg-white/72 px-5 py-4">
+          <div className="rounded-[1.5rem] border border-border bg-surface-strong px-5 py-4">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted">
               Recommended next step
             </p>

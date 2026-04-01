@@ -3,11 +3,6 @@ import Credentials from "next-auth/providers/credentials";
 
 const protectedPrefixes = [
   "/dashboard",
-  "/announcements",
-  "/tools",
-  "/metrics",
-  "/requests",
-  "/directory",
 ];
 
 export const demoCredentials = {

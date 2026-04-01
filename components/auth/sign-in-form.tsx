@@ -20,7 +20,7 @@ export function SignInForm() {
           autoComplete="email"
           required
           defaultValue="admin@company.com"
-          className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-accent"
+          className="w-full rounded-2xl border border-border bg-surface-strong px-4 py-3 text-sm text-ink outline-none transition focus:border-accent"
         />
       </div>
 
@@ -35,12 +35,12 @@ export function SignInForm() {
           autoComplete="current-password"
           required
           defaultValue="ChangeMe123!"
-          className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-accent"
+          className="w-full rounded-2xl border border-border bg-surface-strong px-4 py-3 text-sm text-ink outline-none transition focus:border-accent"
         />
       </div>
 
       {message ? (
-        <p className="rounded-2xl border border-danger/20 bg-red-50 px-4 py-3 text-sm text-danger">
+        <p className="rounded-2xl border border-danger/30 bg-[var(--danger-soft)] px-4 py-3 text-sm text-danger">
           {message}
         </p>
       ) : null}

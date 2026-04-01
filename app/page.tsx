@@ -14,10 +14,10 @@ export default async function Home() {
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-12 px-6 py-10 lg:px-10 lg:py-12">
       <section className="glass-panel relative overflow-hidden rounded-[2rem] border border-border px-8 py-10 lg:px-12 lg:py-14">
-        <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-[radial-gradient(circle_at_top,rgba(15,118,110,0.16),transparent_44%)] lg:block" />
+        <div className="hero-glow absolute inset-y-0 right-0 hidden w-1/2 lg:block" />
         <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(22rem,0.9fr)] lg:items-end">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-2 text-sm font-medium text-muted">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-strong px-4 py-2 text-sm font-medium text-muted">
               <Sparkles className="h-4 w-4 text-accent" />
               Company operations dashboard starter
             </div>
@@ -41,7 +41,7 @@ export default async function Home() {
               </Link>
               <Link
                 href="#sections"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border-strong bg-white/70 px-6 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border-strong bg-surface-strong px-6 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"
               >
                 Explore the skeleton
                 <ArrowRight className="h-4 w-4" />
@@ -49,27 +49,27 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="grid gap-4 rounded-[1.75rem] border border-border bg-[#13231f] p-5 text-white shadow-[0_24px_80px_rgba(19,35,31,0.24)]">
-            <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/6 p-4">
+          <div className="grid gap-4 rounded-[1.75rem] border border-border bg-surface-strong p-5 text-ink shadow-[var(--shadow-lg)]">
+            <div className="flex items-center justify-between rounded-2xl border border-border bg-surface p-4">
               <div>
-                <p className="text-sm uppercase tracking-[0.24em] text-white/55">Access</p>
+                <p className="text-sm uppercase tracking-[0.24em] text-muted">Access</p>
                 <p className="mt-2 text-2xl font-semibold">Protected routes</p>
               </div>
-              <div className="rounded-full bg-white/12 px-3 py-1 text-sm font-medium text-white/80">
+              <div className="rounded-full border border-border bg-accent-soft px-3 py-1 text-sm font-medium text-ink">
                 NextAuth
               </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/6 p-4">
-                <p className="text-sm text-white/60">Reusable layout</p>
+              <div className="rounded-2xl border border-border bg-surface p-4">
+                <p className="text-sm text-muted">Reusable layout</p>
                 <p className="mt-2 text-lg font-semibold">Sidebar + command header</p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/6 p-4">
-                <p className="text-sm text-white/60">Planned sections</p>
+              <div className="rounded-2xl border border-border bg-surface p-4">
+                <p className="text-sm text-muted">Planned sections</p>
                 <p className="mt-2 text-lg font-semibold">5 launch-ready route stubs</p>
               </div>
             </div>
-            <div className="rounded-2xl border border-dashed border-white/18 bg-black/10 p-4 text-sm text-white/70">
+            <div className="rounded-2xl border border-dashed border-border bg-accent-soft p-4 text-sm text-muted">
               Swap the demo credentials provider for your company SSO later without
               replacing the application shell.
             </div>

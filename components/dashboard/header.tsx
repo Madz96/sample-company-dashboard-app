@@ -10,7 +10,7 @@ export function DashboardHeader({ session }: DashboardHeaderProps) {
   return (
     <header className="glass-panel flex flex-col gap-4 rounded-[1.75rem] border border-border px-5 py-4 md:flex-row md:items-center md:justify-between md:px-6">
       <div>
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/72 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-muted">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-strong px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-muted">
           <Sparkles className="h-3.5 w-3.5 text-accent" />
           Dashboard skeleton
         </div>
@@ -24,7 +24,7 @@ export function DashboardHeader({ session }: DashboardHeaderProps) {
       </div>
 
       <div className="flex items-center gap-3 self-start md:self-center">
-        <div className="hidden rounded-2xl border border-border bg-white/72 px-4 py-3 text-sm text-muted md:block">
+        <div className="hidden rounded-2xl border border-border bg-surface-strong px-4 py-3 text-sm text-muted md:block">
           <div className="flex items-center gap-2 font-medium text-ink">
             <ShieldCheck className="h-4 w-4 text-success" />
             Authenticated session
