@@ -104,3 +104,28 @@ a {
 .hero-glow {
   background: radial-gradient(circle at top, var(--accent-soft), transparent 44%);
 }
+
+@keyframes sidebar-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.sidebar-marquee-track {
+  animation: sidebar-marquee 8s linear infinite;
+  animation-play-state: paused;
+}
+
+.group:hover .sidebar-marquee-track,
+.group:focus-visible .sidebar-marquee-track {
+  animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-marquee-track {
+    animation: none;
+  }
+}
