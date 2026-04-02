@@ -1,12 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Bell,
-  ChartNoAxesCombined,
-  FolderClock,
-  LayoutDashboard,
-  Link2,
-  Users,
-} from "lucide-react";
+import { LayoutDashboard } from "lucide-react";
 
 export type DashboardNavItem = {
   href: string;

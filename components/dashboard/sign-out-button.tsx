@@ -1,17 +1,9 @@
 import { LogOut } from "lucide-react";
-import { signOut } from "@/auth";
+import { signOutUser } from "@/lib/auth-actions";
 
 export function SignOutButton() {
-  async function handleSignOut() {
-    "use server";
-
-    await signOut({
-      redirectTo: "/sign-in",
-    });
-  }
-
   return (
-    <form action={handleSignOut}>
+    <form action={signOutUser}>
       <button
         type="submit"
         className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-white px-4 py-2.5 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent"

@@ -16,7 +16,10 @@ export default async function DashboardLayout({
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-[1600px] flex-col gap-4 px-4 py-4 lg:flex-row">
-      <DashboardSidebar />
+      <DashboardSidebar
+        userName={session.user.name ?? "Northstar User"}
+        userEmail={session.user.email}
+      />
       <div className="flex min-w-0 flex-1 flex-col gap-4">
         <DashboardHeader session={session} />
         <main className="flex flex-1 flex-col gap-6 pb-6">{children}</main>

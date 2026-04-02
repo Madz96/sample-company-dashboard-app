@@ -1,6 +1,5 @@
 import type { Session } from "next-auth";
 import { ShieldCheck, Sparkles } from "lucide-react";
-import { SignOutButton } from "@/components/dashboard/sign-out-button";
 
 type DashboardHeaderProps = {
   session: Session;
@@ -31,7 +30,6 @@ export function DashboardHeader({ session }: DashboardHeaderProps) {
           </div>
           <div className="mt-1 font-mono text-xs">{session.user?.email}</div>
         </div>
-        <SignOutButton />
       </div>
     </header>
   );

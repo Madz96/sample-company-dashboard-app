@@ -4,13 +4,22 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Building2, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { useState } from "react";
+import { DashboardAccountMenu } from "@/components/dashboard/account-menu";
 import { dashboardNavItems } from "@/lib/navigation";
 
 function classNames(...values: Array<string | false | null | undefined>) {
   return values.filter(Boolean).join(" ");
 }
 
-export function DashboardSidebar() {
+type DashboardSidebarProps = {
+  userName: string;
+  userEmail?: string | null;
+};
+
+export function DashboardSidebar({
+  userName,
+  userEmail,
+}: DashboardSidebarProps) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
 
@@ -150,38 +159,47 @@ export function DashboardSidebar() {
         })}
       </nav>
 
-      {/* Toggle button — same collapsed/expanded pattern as nav items */}
-      <button
-        onClick={() => setCollapsed((c) => !c)}
-        title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-        className={classNames(
-          "group flex items-center rounded-2xl transition-all duration-300",
-          collapsed
-            ? "h-10 justify-center border-0 bg-transparent p-0"
-            : "gap-3 border border-transparent bg-surface px-4 py-3 text-muted hover:border-border hover:bg-surface-strong hover:text-ink",
-        )}
-      >
-        <span
+      <div className="space-y-3">
+        <DashboardAccountMenu
+          collapsed={collapsed}
+          userName={userName}
+          userEmail={userEmail}
+          roleLabel="Team Member"
+        />
+
+        {/* Toggle button — same collapsed/expanded pattern as nav items */}
+        <button
+          onClick={() => setCollapsed((c) => !c)}
+          title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           className={classNames(
-            "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent transition",
-            collapsed ? "hover:bg-surface-strong" : "",
+            "group flex w-full items-center rounded-2xl transition-all duration-300",
+            collapsed
+              ? "h-10 justify-center border-0 bg-transparent p-0"
+              : "gap-3 border border-transparent bg-surface px-4 py-3 text-muted hover:border-border hover:bg-surface-strong hover:text-ink",
           )}
         >
-          {collapsed ? (
-            <PanelLeftOpen className="h-5 w-5" />
-          ) : (
-            <PanelLeftClose className="h-5 w-5" />
-          )}
-        </span>
-        <span
-          className={classNames(
-            "overflow-hidden transition-opacity duration-150",
-            collapsed ? "pointer-events-none opacity-0" : "opacity-100",
-          )}
-        >
-          <span className="block whitespace-nowrap text-sm font-semibold">Collapse</span>
-        </span>
-      </button>
+          <span
+            className={classNames(
+              "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent transition",
+              collapsed ? "hover:bg-surface-strong" : "",
+            )}
+          >
+            {collapsed ? (
+              <PanelLeftOpen className="h-5 w-5" />
+            ) : (
+              <PanelLeftClose className="h-5 w-5" />
+            )}
+          </span>
+          <span
+            className={classNames(
+              "overflow-hidden transition-opacity duration-150",
+              collapsed ? "pointer-events-none opacity-0" : "opacity-100",
+            )}
+          >
+            <span className="block whitespace-nowrap text-sm font-semibold">Collapse</span>
+          </span>
+        </button>
+      </div>
     </aside>
   );
 }
